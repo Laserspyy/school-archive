@@ -18,7 +18,6 @@ import {
 const mainItems = [
   { title: "Dashboard", url: "/", icon: Home },
   { title: "All Classes", url: "/classes", icon: GraduationCap },
-  { title: "Teachers", url: "/teachers", icon: Users },
   { title: "Schedule", url: "/schedule", icon: Calendar },
 ]
 
@@ -29,6 +28,10 @@ const classItems = [
   { title: "Grade 4", url: "/classes/grade-4", icon: BookOpen },
   { title: "Grade 5", url: "/classes/grade-5", icon: BookOpen },
   { title: "Grade 6", url: "/classes/grade-6", icon: BookOpen },
+  { title: "Grade 7", url: "/classes/grade-7", icon: BookOpen },
+  { title: "Grade 8", url: "/classes/grade-8", icon: BookOpen },
+  { title: "Grade 9", url: "/classes/grade-9", icon: BookOpen },
+  { title: "Grade 10", url: "/classes/grade-10", icon: BookOpen },
 ]
 
 export function AppSidebar() {

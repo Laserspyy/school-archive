@@ -24,14 +24,7 @@ const Index = () => {
       description: "Browse all available classes and grades",
       icon: <GraduationCap className="h-6 w-6" />,
       onClick: () => navigate('/classes'),
-      itemCount: 6
-    },
-    {
-      title: "Teachers",
-      description: "Meet our experienced teaching staff",
-      icon: <Users className="h-6 w-6" />,
-      onClick: () => navigate('/teachers'),
-      itemCount: 15
+      itemCount: 10
     },
     {
       title: "Schedule",
@@ -70,9 +63,9 @@ const Index = () => {
   ]
 
   const stats = [
-    { label: "Total Classes", value: "6", icon: <GraduationCap className="h-5 w-5" /> },
-    { label: "Subjects", value: "24", icon: <BookOpen className="h-5 w-5" /> },
-    { label: "Teachers", value: "15", icon: <Users className="h-5 w-5" /> },
+    { label: "Total Classes", value: "10", icon: <GraduationCap className="h-5 w-5" /> },
+    { label: "Subjects", value: "32", icon: <BookOpen className="h-5 w-5" /> },
+    { label: "Study Materials", value: "450+", icon: <FileText className="h-5 w-5" /> },
     { label: "Study Hours", value: "128", icon: <Clock className="h-5 w-5" /> }
   ]
 
@@ -101,7 +94,7 @@ const Index = () => {
         {/* Quick Access */}
         <div>
           <h2 className="text-2xl font-semibold mb-6 text-foreground">Quick Access</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {quickAccess.map((item, index) => (
               <FolderCard
                 key={index}

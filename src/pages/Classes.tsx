@@ -42,6 +42,30 @@ const Classes = () => {
       description: "Middle school readiness with specialized subject focus",
       subjects: 12,
       path: "/classes/grade-6"
+    },
+    {
+      title: "Grade 7",
+      description: "Early high school concepts with advanced mathematics",
+      subjects: 12,
+      path: "/classes/grade-7"
+    },
+    {
+      title: "Grade 8",
+      description: "Pre-high school preparation with complex topics",
+      subjects: 13,
+      path: "/classes/grade-8"
+    },
+    {
+      title: "Grade 9",
+      description: "High school foundation with specialized streams",
+      subjects: 14,
+      path: "/classes/grade-9"
+    },
+    {
+      title: "Grade 10",
+      description: "Board exam preparation with comprehensive curriculum",
+      subjects: 15,
+      path: "/classes/grade-10"
     }
   ]
 

@@ -46,8 +46,23 @@ const ClassDetail = () => {
     // Add advanced subjects for higher grades
     if (parseInt(grade?.split('-')[1] || '1') >= 4) {
       baseSubjects.push(
-        { name: "Computer Science", key: "computer-science", description: "Basic programming and technology skills" },
+        { name: "Computer Science", key: "computer-science", description: "Basic programming and technology skills" }
+      )
+    }
+
+    // Add more advanced subjects for middle/high school grades
+    if (parseInt(grade?.split('-')[1] || '1') >= 6) {
+      baseSubjects.push(
         { name: "Foreign Language", key: "foreign-language", description: "Introduction to a second language" }
+      )
+    }
+
+    // Add specialized subjects for high school grades
+    if (parseInt(grade?.split('-')[1] || '1') >= 9) {
+      baseSubjects.push(
+        { name: "Physics", key: "physics", description: "Advanced physics concepts and experiments" },
+        { name: "Chemistry", key: "chemistry", description: "Chemical reactions and laboratory work" },
+        { name: "Biology", key: "biology", description: "Life sciences and biological systems" }
       )
     }
 
