@@ -7,8 +7,8 @@ All colors MUST be HSL.
 */
 
 @layer base {
-  :root {
-    --background: 0 0% 100%;
+:root {
+    --background: 210 25% 98%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -17,17 +17,29 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 210 88% 45%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 148 48% 95%;
+    --secondary-foreground: 155 65% 20%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 148 48% 95%;
+    --accent-foreground: 155 65% 20%;
+
+    --education-blue: 210 88% 45%;
+    --education-blue-light: 210 88% 95%;
+    --education-green: 155 65% 50%;
+    --education-green-light: 148 48% 95%;
+    --folder-bg: 45 100% 96%;
+    --folder-hover: 45 100% 92%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--education-green)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--education-blue-light)));
+    --shadow-card: 0 4px 20px -4px hsl(var(--primary) / 0.1);
+    --shadow-folder: 0 2px 12px -2px hsl(var(--primary) / 0.08);
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -55,7 +67,7 @@ All colors MUST be HSL.
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark {
+.dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
@@ -65,7 +77,7 @@ All colors MUST be HSL.
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
+    --primary: 210 88% 65%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -76,6 +88,18 @@ All colors MUST be HSL.
 
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
+
+    --education-blue: 210 88% 65%;
+    --education-blue-light: 210 30% 15%;
+    --education-green: 155 65% 60%;
+    --education-green-light: 148 30% 15%;
+    --folder-bg: 45 30% 12%;
+    --folder-hover: 45 30% 18%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--education-green)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--education-blue-light)));
+    --shadow-card: 0 4px 20px -4px hsl(var(--primary) / 0.2);
+    --shadow-folder: 0 2px 12px -2px hsl(var(--primary) / 0.15);
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
