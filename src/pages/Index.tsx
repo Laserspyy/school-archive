@@ -18,6 +18,19 @@ import {
 const Index = () => {
   const navigate = useNavigate()
 
+  const gradeCards = [
+    { title: "Grade 1", description: "Foundation learning for beginners", grade: "grade-1", subjects: 6 },
+    { title: "Grade 2", description: "Building basic skills", grade: "grade-2", subjects: 6 },
+    { title: "Grade 3", description: "Expanding knowledge base", grade: "grade-3", subjects: 7 },
+    { title: "Grade 4", description: "Intermediate concepts", grade: "grade-4", subjects: 7 },
+    { title: "Grade 5", description: "Advanced elementary topics", grade: "grade-5", subjects: 8 },
+    { title: "Grade 6", description: "Pre-middle school preparation", grade: "grade-6", subjects: 8 },
+    { title: "Grade 7", description: "Middle school foundations", grade: "grade-7", subjects: 9 },
+    { title: "Grade 8", description: "Advanced middle school", grade: "grade-8", subjects: 9 },
+    { title: "Grade 9", description: "High school preparation", grade: "grade-9", subjects: 10 },
+    { title: "Grade 10", description: "Advanced high school topics", grade: "grade-10", subjects: 10 }
+  ]
+
   const quickAccess = [
     {
       title: "All Classes",
@@ -103,6 +116,23 @@ const Index = () => {
                 icon={item.icon}
                 onClick={item.onClick}
                 itemCount={item.itemCount}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* All Grades Navigation */}
+        <div>
+          <h2 className="text-2xl font-semibold mb-6 text-foreground">Browse by Grade</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {gradeCards.map((grade, index) => (
+              <FolderCard
+                key={index}
+                title={grade.title}
+                description={grade.description}
+                icon={<GraduationCap className="h-6 w-6" />}
+                onClick={() => navigate(`/classes/${grade.grade}`)}
+                itemCount={grade.subjects}
               />
             ))}
           </div>
