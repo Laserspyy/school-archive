@@ -23,28 +23,28 @@ const SubjectDetail = () => {
       description: "Comprehensive written materials and study guides",
       icon: <FileText className="h-6 w-6" />,
       path: "notes",
-      count: 15
+      count: 12
     },
     {
       title: "Video Lessons",
       description: "Interactive video content and tutorials",
       icon: <Video className="h-6 w-6" />,
       path: "videos",
-      count: 12
+      count: 8
     },
     {
       title: "Practice Questions",
       description: "Sample questions and practice exercises",
       icon: <HelpCircle className="h-6 w-6" />,
       path: "questions",
-      count: 25
+      count: 15
     },
     {
       title: "Assignments",
       description: "Homework and project assignments",
       icon: <Target className="h-6 w-6" />,
       path: "assignments",
-      count: 8
+      count: 5
     }
   ]
 

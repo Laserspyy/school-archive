@@ -22,49 +22,49 @@ const Classes = () => {
     {
       title: "Grade 3",
       description: "Intermediate concepts and critical thinking development",
-      subjects: 9,
+      subjects: 8,
       path: "/classes/grade-3"
     },
     {
       title: "Grade 4",
       description: "Advanced elementary concepts and skill building",
-      subjects: 10,
+      subjects: 9,
       path: "/classes/grade-4"
     },
     {
       title: "Grade 5",
       description: "Pre-middle school preparation with comprehensive subjects",
-      subjects: 10,
+      subjects: 9,
       path: "/classes/grade-5"
     },
     {
       title: "Grade 6",
       description: "Middle school readiness with specialized subject focus",
-      subjects: 12,
+      subjects: 10,
       path: "/classes/grade-6"
     },
     {
       title: "Grade 7",
       description: "Early high school concepts with advanced mathematics",
-      subjects: 12,
+      subjects: 10,
       path: "/classes/grade-7"
     },
     {
       title: "Grade 8",
       description: "Pre-high school preparation with complex topics",
-      subjects: 13,
+      subjects: 10,
       path: "/classes/grade-8"
     },
     {
       title: "Grade 9",
       description: "High school foundation with specialized streams",
-      subjects: 14,
+      subjects: 11,
       path: "/classes/grade-9"
     },
     {
       title: "Grade 10",
       description: "Board exam preparation with comprehensive curriculum",
-      subjects: 15,
+      subjects: 11,
       path: "/classes/grade-10"
     }
   ]

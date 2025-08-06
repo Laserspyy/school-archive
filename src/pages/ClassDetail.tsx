@@ -91,7 +91,7 @@ const ClassDetail = () => {
               icon={subjectIcons[subject.key as keyof typeof subjectIcons] || <BookOpen className="h-6 w-6" />}
               onClick={() => navigate(`/classes/${grade}/${subject.key}`)}
               variant="subject"
-              itemCount={Math.floor(Math.random() * 20) + 10} // Random content count for demo
+              itemCount={4} // Each subject has 4 content types: notes, videos, questions, assignments
             />
           ))}
         </div>

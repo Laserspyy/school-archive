@@ -19,16 +19,16 @@ const Index = () => {
   const navigate = useNavigate()
 
   const gradeCards = [
-    { title: "Grade 1", description: "Foundation learning for beginners", grade: "grade-1", subjects: 6 },
-    { title: "Grade 2", description: "Building basic skills", grade: "grade-2", subjects: 6 },
-    { title: "Grade 3", description: "Expanding knowledge base", grade: "grade-3", subjects: 7 },
-    { title: "Grade 4", description: "Intermediate concepts", grade: "grade-4", subjects: 7 },
-    { title: "Grade 5", description: "Advanced elementary topics", grade: "grade-5", subjects: 8 },
-    { title: "Grade 6", description: "Pre-middle school preparation", grade: "grade-6", subjects: 8 },
-    { title: "Grade 7", description: "Middle school foundations", grade: "grade-7", subjects: 9 },
-    { title: "Grade 8", description: "Advanced middle school", grade: "grade-8", subjects: 9 },
-    { title: "Grade 9", description: "High school preparation", grade: "grade-9", subjects: 10 },
-    { title: "Grade 10", description: "Advanced high school topics", grade: "grade-10", subjects: 10 }
+    { title: "Grade 1", description: "Foundation learning for beginners", grade: "grade-1", subjects: 8 },
+    { title: "Grade 2", description: "Building basic skills", grade: "grade-2", subjects: 8 },
+    { title: "Grade 3", description: "Expanding knowledge base", grade: "grade-3", subjects: 8 },
+    { title: "Grade 4", description: "Intermediate concepts", grade: "grade-4", subjects: 9 },
+    { title: "Grade 5", description: "Advanced elementary topics", grade: "grade-5", subjects: 9 },
+    { title: "Grade 6", description: "Pre-middle school preparation", grade: "grade-6", subjects: 10 },
+    { title: "Grade 7", description: "Middle school foundations", grade: "grade-7", subjects: 10 },
+    { title: "Grade 8", description: "Advanced middle school", grade: "grade-8", subjects: 10 },
+    { title: "Grade 9", description: "High school preparation", grade: "grade-9", subjects: 11 },
+    { title: "Grade 10", description: "Advanced high school topics", grade: "grade-10", subjects: 11 }
   ]
 
   const quickAccess = [
@@ -36,15 +36,13 @@ const Index = () => {
       title: "All Classes",
       description: "Browse all available classes and grades",
       icon: <GraduationCap className="h-6 w-6" />,
-      onClick: () => navigate('/classes'),
-      itemCount: 10
+      onClick: () => navigate('/classes')
     },
     {
       title: "Schedule",
       description: "View class schedules and timetables",
       icon: <Calendar className="h-6 w-6" />,
-      onClick: () => navigate('/schedule'),
-      itemCount: 24
+      onClick: () => navigate('/schedule')
     }
   ]
 
@@ -115,7 +113,6 @@ const Index = () => {
                 description={item.description}
                 icon={item.icon}
                 onClick={item.onClick}
-                itemCount={item.itemCount}
               />
             ))}
           </div>
