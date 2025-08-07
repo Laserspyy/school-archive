@@ -48,40 +48,24 @@ const SubjectDetail = () => {
     }
   ]
 
-  const recentContent = [
-    {
-      title: "Chapter 1: Introduction",
-      description: "Basic concepts and fundamental principles",
-      icon: <BookOpen className="h-5 w-5" />,
-      type: "Notes",
-      duration: "20 min read",
-      views: 245
-    },
-    {
-      title: "Getting Started Video",
-      description: "Welcome video explaining the subject basics",
-      icon: <PlayCircle className="h-5 w-5" />,
-      type: "Video",
-      duration: "15 min",
-      views: 189
-    },
-    {
-      title: "Practice Set 1",
-      description: "Basic practice questions to test understanding",
-      icon: <PenTool className="h-5 w-5" />,
-      type: "Quiz",
-      duration: "30 min",
-      views: 156
-    },
-    {
-      title: "Weekly Assignment",
-      description: "Complete this week's homework assignment",
-      icon: <Download className="h-5 w-5" />,
-      type: "Assignment",
-      duration: "2 hours",
-      views: 98
+  const getRecentContent = (grade: string, subject: string) => {
+    // Only show recent content if there's actual content available
+    if (grade === 'grade-10' && subject === 'mathematics') {
+      return [
+        {
+          title: "Mathematics Standard - Sample Question Paper",
+          description: "Class X (2025-26) - Complete sample paper for practice",
+          icon: <PenTool className="h-5 w-5" />,
+          type: "Sample Paper",
+          duration: "3 hours",
+          views: 0
+        }
+      ]
     }
-  ]
+    return []
+  }
+
+  const recentContent = getRecentContent(grade || '', subject || '')
 
   const gradeTitle = grade?.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase()) || 'Grade'
   const subjectTitle = subject?.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase()) || 'Subject'
@@ -132,26 +116,28 @@ const SubjectDetail = () => {
         </div>
 
         {/* Recent Content */}
-        <div>
-          <h2 className="text-2xl font-semibold mb-6 text-foreground">Recent Materials</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {recentContent.map((content, index) => (
-              <ContentCard
-                key={index}
-                title={content.title}
-                description={content.description}
-                icon={content.icon}
-                type={content.type}
-                duration={content.duration}
-                views={content.views}
-                onClick={() => {
-                  // Navigate to specific content
-                  console.log(`Viewing: ${content.title}`)
-                }}
-              />
-            ))}
+        {recentContent.length > 0 && (
+          <div>
+            <h2 className="text-2xl font-semibold mb-6 text-foreground">Recent Materials</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {recentContent.map((content, index) => (
+                <ContentCard
+                  key={index}
+                  title={content.title}
+                  description={content.description}
+                  icon={content.icon}
+                  type={content.type}
+                  duration={content.duration}
+                  views={content.views}
+                  onClick={() => {
+                    // Navigate to specific content
+                    console.log(`Viewing: ${content.title}`)
+                  }}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </Layout>
   )
