@@ -2,6 +2,7 @@ import Layout from "@/components/Layout"
 import { FolderCard } from "@/components/FolderCard"
 import { ContentCard } from "@/components/ContentCard"
 import { useNavigate } from "react-router-dom"
+import { getGradeSubjectCount } from "@/lib/contentDatabase"
 import { 
   GraduationCap, 
   BookOpen, 
@@ -19,16 +20,16 @@ const Index = () => {
   const navigate = useNavigate()
 
   const gradeCards = [
-    { title: "Grade 1", description: "Foundation learning for beginners", grade: "grade-1", subjects: 8 },
-    { title: "Grade 2", description: "Building basic skills", grade: "grade-2", subjects: 8 },
-    { title: "Grade 3", description: "Expanding knowledge base", grade: "grade-3", subjects: 8 },
-    { title: "Grade 4", description: "Intermediate concepts", grade: "grade-4", subjects: 9 },
-    { title: "Grade 5", description: "Advanced elementary topics", grade: "grade-5", subjects: 9 },
-    { title: "Grade 6", description: "Pre-middle school preparation", grade: "grade-6", subjects: 10 },
-    { title: "Grade 7", description: "Middle school foundations", grade: "grade-7", subjects: 10 },
-    { title: "Grade 8", description: "Advanced middle school", grade: "grade-8", subjects: 10 },
-    { title: "Grade 9", description: "High school preparation", grade: "grade-9", subjects: 11 },
-    { title: "Grade 10", description: "Advanced high school topics", grade: "grade-10", subjects: 11 }
+    { title: "Grade 1", description: "Foundation learning for beginners", grade: "grade-1" },
+    { title: "Grade 2", description: "Building basic skills", grade: "grade-2" },
+    { title: "Grade 3", description: "Expanding knowledge base", grade: "grade-3" },
+    { title: "Grade 4", description: "Intermediate concepts", grade: "grade-4" },
+    { title: "Grade 5", description: "Advanced elementary topics", grade: "grade-5" },
+    { title: "Grade 6", description: "Pre-middle school preparation", grade: "grade-6" },
+    { title: "Grade 7", description: "Middle school foundations", grade: "grade-7" },
+    { title: "Grade 8", description: "Advanced middle school", grade: "grade-8" },
+    { title: "Grade 9", description: "High school preparation", grade: "grade-9" },
+    { title: "Grade 10", description: "Advanced high school topics", grade: "grade-10" }
   ]
 
   const quickAccess = [
@@ -46,38 +47,13 @@ const Index = () => {
     }
   ]
 
-  const recentContent = [
-    {
-      title: "Introduction to Algebra",
-      description: "Basic algebraic concepts and problem solving techniques",
-      icon: <Video className="h-5 w-5" />,
-      type: "Video",
-      duration: "25 min",
-      views: 1250
-    },
-    {
-      title: "English Grammar Notes",
-      description: "Comprehensive notes on parts of speech and sentence structure",
-      icon: <FileText className="h-5 w-5" />,
-      type: "Notes",
-      duration: "15 min read",
-      views: 890
-    },
-    {
-      title: "Science Quiz - Physics",
-      description: "Test your understanding of basic physics concepts",
-      icon: <HelpCircle className="h-5 w-5" />,
-      type: "Quiz",
-      duration: "10 min",
-      views: 456
-    }
-  ]
+  // Remove recent content section as it should only show actual content
 
   const stats = [
     { label: "Total Classes", value: "10", icon: <GraduationCap className="h-5 w-5" /> },
-    { label: "Subjects", value: "32", icon: <BookOpen className="h-5 w-5" /> },
-    { label: "Study Materials", value: "450+", icon: <FileText className="h-5 w-5" /> },
-    { label: "Study Hours", value: "128", icon: <Clock className="h-5 w-5" /> }
+    { label: "Subjects", value: getGradeSubjectCount('grade-10').toString(), icon: <BookOpen className="h-5 w-5" /> },
+    { label: "Study Materials", value: "1", icon: <FileText className="h-5 w-5" /> },
+    { label: "Study Hours", value: "3", icon: <Clock className="h-5 w-5" /> }
   ]
 
   return (
@@ -129,25 +105,7 @@ const Index = () => {
                 description={grade.description}
                 icon={<GraduationCap className="h-6 w-6" />}
                 onClick={() => navigate(`/classes/${grade.grade}`)}
-                itemCount={grade.subjects}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Recent Content */}
-        <div>
-          <h2 className="text-2xl font-semibold mb-6 text-foreground">Recent Learning Materials</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {recentContent.map((content, index) => (
-              <ContentCard
-                key={index}
-                title={content.title}
-                description={content.description}
-                icon={content.icon}
-                type={content.type}
-                duration={content.duration}
-                views={content.views}
+                itemCount={getGradeSubjectCount(grade.grade)}
               />
             ))}
           </div>

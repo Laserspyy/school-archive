@@ -2,6 +2,7 @@ import Layout from "@/components/Layout"
 import { FolderCard } from "@/components/FolderCard"
 import { ContentCard } from "@/components/ContentCard"
 import { useNavigate, useParams } from "react-router-dom"
+import { getSubjectContentTypeCount } from "@/lib/contentDatabase"
 import { 
   FileText, 
   Video, 
@@ -17,36 +18,38 @@ const SubjectDetail = () => {
   const navigate = useNavigate()
   const { grade, subject } = useParams()
 
-  const contentTypes = [
+  const getContentTypes = (grade: string, subject: string) => [
     {
       title: "Lesson Notes",
       description: "Comprehensive written materials and study guides",
       icon: <FileText className="h-6 w-6" />,
       path: "notes",
-      count: 12
+      count: getSubjectContentTypeCount(grade, subject, "notes")
     },
     {
       title: "Video Lessons",
       description: "Interactive video content and tutorials",
       icon: <Video className="h-6 w-6" />,
       path: "videos",
-      count: 8
+      count: getSubjectContentTypeCount(grade, subject, "videos")
     },
     {
       title: "Practice Questions",
       description: "Sample questions and practice exercises",
       icon: <HelpCircle className="h-6 w-6" />,
       path: "questions",
-      count: 15
+      count: getSubjectContentTypeCount(grade, subject, "questions")
     },
     {
       title: "Assignments",
       description: "Homework and project assignments",
       icon: <Target className="h-6 w-6" />,
       path: "assignments",
-      count: 5
+      count: getSubjectContentTypeCount(grade, subject, "assignments")
     }
   ]
+
+  const contentTypes = getContentTypes(grade || '', subject || '')
 
   const getRecentContent = (grade: string, subject: string) => {
     // Only show recent content if there's actual content available

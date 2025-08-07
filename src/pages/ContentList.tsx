@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout"
 import { ContentCard } from "@/components/ContentCard"
 import { useNavigate, useParams } from "react-router-dom"
+import { getContentForGradeSubject } from "@/lib/contentDatabase"
 import { 
   FileText, 
   Video, 
@@ -28,44 +29,12 @@ const ContentList = () => {
     }
   }
 
-  const getContentForGradeSubject = (grade: string, subject: string, type: string) => {
-    // Real content storage - will be populated with actual materials
-    const contentDatabase = {
-      'grade-10': {
-        'mathematics': {
-          'questions': [
-            {
-              title: "Mathematics Standard - Sample Question Paper",
-              description: "Class X (2025-26) - Code No.041 - Complete sample paper with solutions",
-              duration: "3 hours",
-              views: 0,
-              type: "Sample Paper",
-              maxMarks: 80,
-              sections: 5,
-              totalQuestions: 38
-            }
-          ],
-          'notes': [],
-          'videos': [],
-          'assignments': []
-        }
-      }
-    }
-
-    const gradeContent = contentDatabase[grade as keyof typeof contentDatabase]
-    if (!gradeContent) return []
-    
-    const subjectContent = gradeContent[subject as keyof typeof gradeContent]
-    if (!subjectContent) return []
-    
-    return subjectContent[type as keyof typeof subjectContent] || []
-  }
+  const content = getContentForGradeSubject(grade || '', subject || '', contentType || 'notes')
 
   const gradeTitle = grade?.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase()) || 'Grade'
   const subjectTitle = subject?.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase()) || 'Subject'
   const contentTypeTitle = contentType?.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase()) || 'Content'
   
-  const content = getContentForGradeSubject(grade || '', subject || '', contentType || 'notes')
 
   return (
     <Layout>

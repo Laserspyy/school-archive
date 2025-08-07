@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout"
 import { FolderCard } from "@/components/FolderCard"
 import { useNavigate, useParams } from "react-router-dom"
+import { getSubjectTotalContentCount } from "@/lib/contentDatabase"
 import { 
   BookOpen, 
   Calculator, 
@@ -91,7 +92,7 @@ const ClassDetail = () => {
               icon={subjectIcons[subject.key as keyof typeof subjectIcons] || <BookOpen className="h-6 w-6" />}
               onClick={() => navigate(`/classes/${grade}/${subject.key}`)}
               variant="subject"
-              itemCount={4} // Each subject has 4 content types: notes, videos, questions, assignments
+              itemCount={getSubjectTotalContentCount(grade || '', subject.key)}
             />
           ))}
         </div>

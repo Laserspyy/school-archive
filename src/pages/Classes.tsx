@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout"
 import { FolderCard } from "@/components/FolderCard"
 import { useNavigate } from "react-router-dom"
+import { getGradeSubjectCount } from "@/lib/contentDatabase"
 import { GraduationCap } from "lucide-react"
 
 const Classes = () => {
@@ -87,7 +88,7 @@ const Classes = () => {
               description={classItem.description}
               icon={<GraduationCap className="h-6 w-6" />}
               onClick={() => navigate(classItem.path)}
-              itemCount={classItem.subjects}
+              itemCount={getGradeSubjectCount(classItem.path.replace('/classes/', ''))}
             />
           ))}
         </div>
