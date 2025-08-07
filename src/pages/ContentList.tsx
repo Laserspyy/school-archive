@@ -1,5 +1,7 @@
+import { useState } from "react"
 import Layout from "@/components/Layout"
 import { ContentCard } from "@/components/ContentCard"
+import { DocumentViewer } from "@/components/DocumentViewer"
 import { useNavigate, useParams } from "react-router-dom"
 import { getContentForGradeSubject } from "@/lib/contentDatabase"
 import { 
@@ -16,6 +18,8 @@ import {
 } from "lucide-react"
 
 const ContentList = () => {
+  const [selectedDocument, setSelectedDocument] = useState<any>(null)
+  const [isViewerOpen, setIsViewerOpen] = useState(false)
   const navigate = useNavigate()
   const { grade, subject, contentType } = useParams()
 
@@ -30,6 +34,15 @@ const ContentList = () => {
   }
 
   const content = getContentForGradeSubject(grade || '', subject || '', contentType || 'notes')
+
+  const openDocument = (item: any) => {
+    if (item.pages && item.pages.length > 0) {
+      setSelectedDocument(item)
+      setIsViewerOpen(true)
+    } else {
+      console.log(`Opening: ${item.title}`)
+    }
+  }
 
   const gradeTitle = grade?.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase()) || 'Grade'
   const subjectTitle = subject?.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase()) || 'Subject'
@@ -80,10 +93,7 @@ const ContentList = () => {
               type={contentTypeTitle}
               duration={item.duration}
               views={item.views}
-              onClick={() => {
-                // Navigate to specific content item
-                console.log(`Opening: ${item.title}`)
-              }}
+              onClick={() => openDocument(item)}
             />
           ))}
         </div>
@@ -96,6 +106,18 @@ const ContentList = () => {
               <p className="text-sm mt-2">Check back later for updates!</p>
             </div>
           </div>
+        )}
+
+        {/* Document Viewer */}
+        {selectedDocument && (
+          <DocumentViewer
+            isOpen={isViewerOpen}
+            onClose={() => {
+              setIsViewerOpen(false)
+              setSelectedDocument(null)
+            }}
+            document={selectedDocument}
+          />
         )}
       </div>
     </Layout>
